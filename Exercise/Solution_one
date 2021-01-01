@@ -1,0 +1,28 @@
+Solution : Tell which will you use ?
+
+1.Sorting 10 nearby Schools by using their distance from Home.
+=> Insertion Sort,As its time complexity is O(n to n**2) and space complexity is O(1)
+
+2.Sorting bids in a auction to the current bid.
+=> Radix or counting sort.
+
+3.Sorting Score of matches in IPL.
+=>Quick Sort as we should also keep memory usage in mind.
+
+4.Massive database is to be sorted.
+=>Merge Sort,We are using merge sort as, it will be risky to use quick sort
+because of the worst case and size of the data-base
+
+5.Sort Sorted udemy review after adding two new Review.
+=>Insertion Sort as the given data is big in size but we can assume that most elements are sorted.
+
+6.Temperature records of past fifty years are to be sorted.
+=>Radix Sort or counting sort if the data is in integers and not in decimals.
+=>Quick sort if the given data is accurate and not merge sort to save internal memory.
+
+7.Large user name database needs to be sorted.Data is very random.
+=>Merge Sort if memory usage is not a problem.
+=>Quick sort if memory is precious and we can find a good pivot.
+
+8.Want to get started your friend with algorithms.
+=>Bubble Sort or Selection Sort :)

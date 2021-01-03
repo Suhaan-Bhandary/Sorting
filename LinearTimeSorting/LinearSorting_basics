@@ -1,0 +1,69 @@
+Linear Time-Sorting
+
+# In this we are going to see how to sort a given object in Linear time and also see why we cannot mathematically achieve a bigO of less
+that nlog(n)
+
+# Things we are going to learn in this session :
+=>Comparison model [Used to prove lower bound for algorithm]
+    =>Lower Bounds :
+      -> searching omega(log(n))
+      -> sorting omega(nlog(n))
+    =>O(n) Sorting Algorithms :
+      -> Counting Sort
+      -> Radix Sort
+
+# Lets start with the comparison model : We have to prove that the optimal solution for an sorting algorithm is omega(nlog(n))
+
+1.Restrict the operations that can be performed :
+- All inputs are black boxes (Abstract data types)
+- only operations allowed are comparisons.
+
+2.Time Cost = #Comparisons {For lower bond perspective}
+
+3.Decision Tree : Any comparison algorithm can be viewed as tree of all possible comparisons and their outcomes,
+                  and resulting answers. For any particular n.
+                  e.g. Binary Search for n = 3
+                      A = [0,1,2] (1,2,3 are index)
+                      Now we will compare x(element to find) with A[1] : A[1] < x
+                                                                       : Then answers to this comparisons can be yes or no only.
+                      # for more understanding draw a tree of the operations in a binary search tree.
+                      # We should not use this tree method to explain a algorithm as it can be very tedious to do in regards to sorting
+                      # Algorithms.
+                      # But for analysing algorithm its a good method.
+
+                  Algorithm : Binary Decision[Comparisons]
+                              Answer found.
+
+                  Algorithm Execution : The execution of outcomes will be seen through root to leaf path.
+
+                  Execution Time : Length of the path.
+
+                  Worst-Case Execution Time of all cases : The Height of the Tree from the root.
+
+# After talking about decision tree, now lets use it to prove lower bounds.
+
+4.Lower Bond of Searching Algorithms : n pre-processed[We can do any operation on it before the algorithm] items,
+                                       finding a given item among them in comparison model requires omega(log(n)) in worst case.
+=>Proof : Decision tree is binary and must have at-least (n) leaves.
+        : And the height of a binary tree must be at-least log(n) for (n) leaves.
+        Answer : As we discussed above about Execution Time is the height of the tree.
+
+5.Lower Bond of Sorting Algorithm : n pre-processed[We can do any operation on it before the algorithm] items,
+                                    Sort a given array in comparison model requires omega(nlog(n)) in worst case.
+=>Proof (no pre-processed[We cannot do any operation on it before the algorithm]) if you got the joke you are learning with mind !!!:
+         Can you guess the number of answers possible or the number of leaves in the decision tree?
+         And it is n!, by using the permutation and combination property.
+
+         height >= log(n!)
+         # Stirling's approximation can also be used but here i am using sum of log(n!) method instead of Stirling's approximation.
+                  # n mathematics, Stirling's approximation (or Stirling's formula) is an approximation for factorials.
+                  # It is a good approximation, leading to accurate results even for small values of n. It is named after James Stirling,
+                  # though it was first stated by Abraham de Moivre.
+
+         height >= log(n!)
+                = log(n(n-1)(n-2)(n-3)....)
+                = log(n)+log(n-1)+log(n-2)....+log(2)+log(1)
+                = sum(log(i)) [i = 1 to n]
+                = integrate
+                = you will get nlog(n) - n
+                >= nlog(n)
